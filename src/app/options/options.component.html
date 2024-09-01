@@ -1,0 +1,80 @@
+<div class="container w-100 ">
+
+  <form class="w-100 text-light bg-dark" [formGroup]="studentForm" (ngSubmit)="done()">
+    <div formGroupName="students" >
+    <!-- Full Name -->
+    <div class="mb-4">
+      <label for="fullName" class="form-label">Full Name</label>
+      <input value="{{myStudent.fullName}}" formControlName="userName" type="text" class="form-control" id="fullName" aria-describedby="fullNameHelp">
+    </div>
+      @if (userName.invalid && (userName.touched || userName.dirty)){
+        @if( userName.errors?.['required'] || userName.errors?.['noSpaces']){
+          <span class="alert alert-danger text-danger-emphasis ">Invalid Username</span>
+        }
+        @if(!userName.errors?.['noSpaces'] && userName.errors?.['minlength']){
+          <span class="alert alert-danger text-danger-emphasis ">Username must be more than 4 digts</span>
+        }
+      }
+
+
+    <!-- Age -->
+    <div class="mb-4">
+      <label for="age" class="form-label">Age</label>
+      <input  value="{{myStudent.age}}"  formControlName="age" type="number" class="form-control" id="age" aria-describedby="ageHelp">
+    </div>
+      @if (age.invalid && (age.touched || age.dirty)){
+        @if( age.errors?.['required'] || age.errors?.['noSpaces']){
+          <span class="alert alert-danger text-danger-emphasis ">Invalid Age must be number</span>
+        }
+        @if(!age.errors?.['noSpaces'] && age.errors?.['maxlength']){
+          <span class="alert alert-danger text-danger-emphasis ">Age must be more than 2 digts</span>
+        }
+      }
+
+    <!-- Address -->
+    <div class="mb-4">
+      <label for="address" class="form-label">Address</label>
+      <input value="{{myStudent.address}}" formControlName="address" type="text" class="form-control" id="address" aria-describedby="addressHelp">
+    </div>
+      @if (address.invalid && (address.touched || address.dirty)){
+        @if( address.errors?.['required'] || address.errors?.['noSpaces']){
+          <span class="alert alert-danger text-danger-emphasis ">Invalid Address</span>
+        }
+        @if(!address.errors?.['noSpaces'] && address.errors?.['minlength']){
+          <span class="alert alert-danger text-danger-emphasis ">Address must be more than 4 digts</span>
+        }
+      }
+    <!--phone-->
+    <div class="mb-4">
+      <label for="address" class="form-label">Phone</label>
+      <input value="{{myStudent.phone}}" formControlName="phone" type="text" class="form-control" id="phone" aria-describedby="addressHelp">
+    </div>
+      @if (phone.invalid && (phone.touched || phone.dirty)){
+        @if( phone.errors?.['required'] || phone.errors?.['noSpaces']){
+          <span class="alert alert-danger text-danger-emphasis ">Invalid Phone</span>
+        }
+        @if(!phone.errors?.['noSpaces'] && (phone.errors?.['minlength'] || phone.errors?.['maxlength'])){
+          <span class="alert alert-danger text-danger-emphasis ">Phone must be more than 11 digts</span>
+        }
+      }
+    <!-- Gender -->
+    <div class="mb-5">
+      <label for="gender" class="form-label">Gender</label>
+      <select value="{{myStudent.gender}}" formControlName="gender" class="form-select" id="gender" aria-describedby="genderHelp">
+        <option value="" disabled selected>Select Gender</option>
+        <option value="MALE">Male</option>
+        <option value="FEMALE">Female</option>
+      </select>
+    </div>
+      @if (gender.invalid && (gender.touched || gender.dirty)){
+        @if( gender.errors?.['required'] || gender.errors?.['noSpaces']){
+          <span class="alert alert-danger text-danger-emphasis ">Must select Gender</span>
+        }
+      }
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" >Done</button>
+  </form>
+
+</div>

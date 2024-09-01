@@ -1,0 +1,59 @@
+<div class="alert alert-success mt-5 " [hidden]="!showAlert" role="alert">{{message}}</div>
+
+<div class="projects bg-dark-subtle">
+  <h2 class="mt-0 mb-3">Students</h2>
+  <div class="container responsive-table">
+  <table class="table ">
+    <thead>
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Age</th>
+      <th scope="col">Address</th>
+      <th scope="col">Options</th>
+
+    </tr>
+    </thead>
+    @if (students.length !=0){
+    <tbody class="table-group-divider">
+      @for (it of students; track $index){
+    <tr>
+      <td scope="row">{{$index+1}}</td>
+      <td>{{it.fullName}}</td>
+      <td>{{it.phone}}</td>
+      <td>{{it.gender}}</td>
+      <td>{{it.age}}</td>
+      <td>{{it.address}}</td>
+      <td>
+        <button class="btn btn-success m-1"  routerLink="/options/{{it.id}}">Update</button>
+        <button class="btn btn-primary m-1" (click)="removeStudent(it.id)">Delete</button>
+      </td>
+    </tr>
+      }
+    </tbody>
+    }
+  </table>
+
+  </div>
+</div>
+
+
+<div class="container ">
+  @if (students.length == 0){
+    <div class="alert alert-danger mt-5 " role="alert">No Students </div>
+  }
+
+  <div class="col-md-7">
+    <div class="row">
+      <div class="col-md-9  ms-5" >
+        <ngb-pagination [(page)]="page" [pageSize]="size" [collectionSize]="numElements" (pageChange)="done()">
+
+        </ngb-pagination>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-danger m-5 " routerLink="/options" href="options">Add Student</button>
+</div>

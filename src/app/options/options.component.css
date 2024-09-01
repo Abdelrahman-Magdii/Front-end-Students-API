@@ -1,0 +1,34 @@
+.container{
+ margin-bottom: 15%;
+}
+
+form{
+  border-radius: 10px;
+  margin: 100px auto auto 150px;
+  /*background-color: #32343c;*/
+  padding: 50px;
+}
+
+@media (max-width: 997px) {
+  form{
+    margin: 100px 20px auto auto;
+  }
+}
+
+input[type=text] ,input[type=number] , input[type=password], textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/*div {*/
+/*  padding: 10px 0;*/
+/*}*/
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+

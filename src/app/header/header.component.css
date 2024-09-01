@@ -1,0 +1,50 @@
+form{
+  position: relative;
+  right: 180px;
+  width: 25%;
+}
+
+@media (max-width:990px) {
+  form{
+    position: relative;
+    left: 0px;
+    bottom: 15px;
+    width: 50%;
+  }
+  .control{
+    position: relative;
+    margin: 7px;
+    width: 50%;
+
+  }
+}
+.control button{
+  margin-left: 13px;
+}
+
+
+/* Adjust search form for larger screens */
+@media (min-width: 992px) {
+  .navbar .d-flex.form-inline {
+    width: auto;
+  }
+}
+
+/* Adjust navbar items for smaller screens */
+@media (max-width: 991px) {
+  .navbar .d-flex {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar .d-flex button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .navbar form {
+    margin-top: 25px;
+    width: 100%;
+  }
+}

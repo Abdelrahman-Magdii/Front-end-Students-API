@@ -1,0 +1,43 @@
+.projects{
+  margin: 20px ;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.projects .responsive-table {
+  overflow-x: auto;
+
+}
+
+.projects table {
+  min-width: 1000px;
+  border-spacing: 0;
+}
+
+.projects thead th {
+  background-color: #eee;
+  font-weight: bold;
+}
+
+.projects table th {
+  padding: 15px;
+}
+
+.projects tbody th {
+  border-bottom: 1px solid #eee;
+  border-left: 1px solid #eee;
+  transition: 0.3s;
+}
+
+.projects table tbody tr th:last-child {
+  border-right: 1px solid #eee;
+}
+
+
+.projects tbody tr:hover th {
+  background-color: #faf7f7;
+}
+
+
+
+/** End Projects Table */

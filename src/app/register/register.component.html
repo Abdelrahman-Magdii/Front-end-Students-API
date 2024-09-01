@@ -1,0 +1,37 @@
+<div class="container m-5">
+  <div class="alert alert-danger mt-5 " [hidden]="!showAlert" role="alert">{{message}}</div>
+
+  <form class="bg-dark " [formGroup]="logForm" (ngSubmit)="OnSubmit()">
+  <h3>Login Here</h3>
+  <div formGroupName="admin">
+
+  <label for="username">Username</label>
+  <input formControlName="userName" type="text" placeholder="Email or Phone" id="username">
+    @if (UserName.invalid && (UserName.touched || UserName.dirty)){
+      @if( UserName.errors?.['required'] || UserName.errors?.['noSpaces']){
+        <span class="alert alert-danger text-danger-emphasis ">Invalid Username</span>
+      }
+      @if(!UserName.errors?.['noSpaces'] && UserName.errors?.['minlength']){
+        <span class="alert alert-danger text-danger-emphasis ">Username must be more than 4 digts</span>
+      }
+
+    }
+
+
+  <label for="password">Password</label>
+  <input formControlName="password" type="password" placeholder="Password" id="password">
+    @if (Password.invalid && (Password.touched || Password.dirty) ){
+      @if(Password.errors?.['required']){
+        <span class="alert alert-danger text-danger-emphasis">Invalid Password</span>
+      }
+      @if(Password.errors?.['minlength']){
+        <span class="alert alert-danger text-danger-emphasis">Password must be more than 4 digts</span>
+      }
+
+    }
+
+  </div>
+  <button class="bg-light text-dark">Log In</button>
+</form>
+</div>
+
